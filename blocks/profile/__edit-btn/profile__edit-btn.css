@@ -1,0 +1,16 @@
+.profile__edit-btn {
+  border: 1px solid #fff;
+  min-width: 18px;
+  aspect-ratio: 1/1;
+  background-color: black;
+  background-image: url(../../../images/logo/edit_btn.svg);
+  background-size: cover;
+  margin-left: 10px;
+}
+
+@media  screen and (min-width: 760px){
+  .profile__edit-btn {
+    grid-column: 4 /5;
+  }
+
+}

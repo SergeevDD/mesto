@@ -1,0 +1,19 @@
+.profile {
+  font-family: 'Inter', 'Arial',  sans-serif;
+  color: #fff;
+  padding-top: 42px;
+  padding-left: 19px;
+  padding-right: 19px;
+  display: grid;
+  justify-items: center;
+}
+
+@media screen and (min-width: 760px) {
+  .profile {
+    max-width: 880px;
+    padding-top: 40px;
+    grid-template-columns: 120px 4fr 1fr 150px;
+    align-items: center;
+    justify-items: flex-start;
+  }
+}

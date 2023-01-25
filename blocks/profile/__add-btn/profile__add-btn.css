@@ -1,0 +1,16 @@
+.profile__add-btn {
+  border: 2px solid #fff;
+  max-width: 282px;
+  min-height: 50px;
+  width: 100%;
+  background-color: black;
+  background-image: url(../../../images/logo/add_btn.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media  screen and (min-width: 760px){
+  .profile__add-btn {
+    grid-column: 4 /5;
+  }
+}
