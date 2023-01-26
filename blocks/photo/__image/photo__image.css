@@ -1,0 +1,7 @@
+.photo__image {
+  max-width: 282px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 3% 3% 0 0 ;
+  grid-column: 1 / 3;
+}
