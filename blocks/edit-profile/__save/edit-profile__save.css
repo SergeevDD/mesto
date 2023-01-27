@@ -1,0 +1,23 @@
+.edit-profile__save {
+  background-color: #000;
+  font-family: 'Inter', 'Arial',  sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  color: white;
+  margin-top: 15px;
+  padding: 14px 82px;
+  border-radius: 2px;
+  transition: opacity .3s ease-in;
+  cursor: pointer;
+}
+
+.edit-profile__save:hover {
+  opacity: .8;
+}
+
+@media screen and (min-width: 800px) {
+  .edit-profile__save {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
