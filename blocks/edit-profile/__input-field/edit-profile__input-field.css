@@ -1,0 +1,6 @@
+.edit-profile__input-field {
+  border: none;
+  display: grid;
+  row-gap: 27px;
+  padding: 0;
+}

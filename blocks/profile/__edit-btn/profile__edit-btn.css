@@ -14,3 +14,9 @@
   opacity: .6;
 }
 
+@media screen and (min-width: 800px) {
+  .profile__edit-btn {
+    min-width: 24px;
+    margin-left: 18px;
+  }
+}

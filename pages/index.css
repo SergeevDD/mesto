@@ -30,7 +30,10 @@
 /* popup */
 @import url(../blocks/edit-profile/edit-profile.css);
 @import url(../blocks/edit-profile/__container/edit-profile__container.css);
+@import url(../blocks/edit-profile/_opened/edit-profile_opened.css);
 @import url(../blocks/edit-profile/__close/edit-profile__close.css);
 @import url(../blocks/edit-profile/__title/edit-profile__title.css);
 @import url(../blocks/edit-profile/__save/edit-profile__save.css);
 @import url(../blocks/edit-profile/__input/edit-profile__input.css);
+@import url(../blocks/edit-profile/__form/edit-profile__form.css);
+@import url(../blocks/edit-profile/__input-field/edit-profile__input-field.css);

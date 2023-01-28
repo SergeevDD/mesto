@@ -1,26 +1,38 @@
-const editProfileBtn = document.querySelector(".navigation__button_type_about");
-const popup = document.querySelector(".popup");
-const closeButton = popup.querySelector(".popup__close");
+let userProfile = document.querySelector('.profile');
+let editMenu = document.querySelector('.edit-profile');
+let pName = userProfile.querySelector('.profile__name');
+let pJob = userProfile.querySelector('.profile__activity');
+let editBtn = userProfile.querySelector('.profile__edit-btn');
+let formSubmit = editMenu.querySelector('.edit-profile__container');
+let closeBtn = editMenu.querySelector('.edit-profile__close');
 
-const toggleOpenPopup = () => {
-  popup.classList.toggle("popup_opened");
-};
+function openEditProfile () {
+  editMenu.classList.add('edit-profile_opened');
+  let inputName = editMenu.querySelector('.edit-profile__input_name');
+  let inputJob = editMenu.querySelector('.edit-profile__input_activity');
+  inputName.value = pName.textContent;
+  inputJob.value = pJob.textContent;
+}
 
-const handleAboutButtonClick = () => {
-  toggleOpenPopup();
-};
+function closeEditProfile () {
+  editMenu.classList.remove('edit-profile_opened');
+}
 
-const handleCloseButtonClick = () => {
-  toggleOpenPopup();
-};
-
-const handleOverlyClick = (event) => {
-  if (event.target === event.currentTarget) {
-    toggleOpenPopup();
+function handleFormSubmit (evt) {
+  evt.preventDefault();
+  let inputName = editMenu.querySelector('.edit-profile__input_name').value;
+  let inputJob = editMenu.querySelector('.edit-profile__input_activity').value;
+  console.log(inputName.length);
+  if(inputName.length > 1 && inputJob.length > 1) {
+  pName.textContent = inputName;
+  pJob.textContent = inputJob;
+  closeEditProfile ();
+  } else {
+    alert('Заполните все поля!');
   }
-};
 
-aboutButton.addEventListener("click", handleAboutButtonClick);
-closeButton.addEventListener("click", handleCloseButtonClick);
+}
 
-popup.addEventListener("click", handleOverlyClick);
+editBtn.addEventListener('click', openEditProfile);
+closeBtn.addEventListener('click', closeEditProfile);
+formSubmit.addEventListener('submit', handleFormSubmit);

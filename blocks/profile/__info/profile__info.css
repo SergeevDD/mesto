@@ -1,5 +1,6 @@
 .profile__info {
   display: grid;
+  align-items: center;
 }
 
 @media screen  and (min-width: 720px) {

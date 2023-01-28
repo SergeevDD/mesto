@@ -4,8 +4,8 @@
   font-size: 14px;
   line-height: 17px;
   color: white;
-  margin-top: 15px;
-  padding: 14px 82px;
+  margin-top: 38px;
+  padding: 13px 82px;
   border-radius: 2px;
   transition: opacity .3s ease-in;
   cursor: pointer;
@@ -19,5 +19,7 @@
   .edit-profile__save {
     font-size: 18px;
     line-height: 22px;
+    min-height: 50px;
+    margin-top: 47px;
   }
 }

@@ -2,8 +2,8 @@
   width: 20px;
   height: 20px;
   position: absolute;
-  top: -26px;
-  right: 0px;
+  top: -35px;
+  right: 3px;
   border: none;
   background-color: transparent;
   background-image: url(../../../images/logo/сlose_btn.svg);
@@ -19,4 +19,13 @@
 
 .popup__close:hover {
  background-color: black;
+}
+
+@media screen and (min-width: 800px) {
+  .edit-profile__close{
+    width: 32px;
+    height: 32px;
+    top: -40px;
+    right: -40px;
+  }
 }
