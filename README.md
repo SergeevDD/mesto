@@ -6,4 +6,4 @@ _Работа проводилась для изучения основ язык
 
 ### Технолоии: HTML, CSS, JavaScript, Git.
 
-[Ссылка на проект](myLink)
+[Ссылка на проект](https://sergeevdd.github.io/mesto/)
