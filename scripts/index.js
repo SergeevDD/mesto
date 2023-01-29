@@ -23,7 +23,7 @@ function handleFormSubmit (evt) {
   if(inputName.value.length > 1 && inputActivity.value.length > 1) {
      profileName.textContent = inputName.value;
      profileActivity.textContent = inputActivity.value;
-     closeEditProfile ();
+     hidePopup();
   } else {
      alert('Заполните все поля!');
   }

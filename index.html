@@ -19,42 +19,42 @@
       <div class="profile__photo"></div>
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <button class="profile__edit-btn"></button>
+        <button class="profile__edit-btn" type="button"></button>
         <p class="profile__activity">Исследователь леса</p>
       </div>
-      <button class="profile__add-btn"></button>
+      <button class="profile__add-btn" type="button"></button>
     </section>
     <section class="photo">
       <ul class="photo__list">
         <li class="photo__card">
           <img src="./images/birch.jpg" alt="Берёза" class="photo__image">
           <h2 class="photo__name">Берёзовая роща</h2>
-          <div class="photo__like-btn"></div>
+          <button type="button" class="photo__like-btn"></button>
         </li>
         <li class="photo__card">
           <img src="./images/giant-oak.jpg" alt="Дуб" class="photo__image">
           <h2 class="photo__name">Дуб великан</h2>
-          <div class="photo__like-btn"></div>
+          <button type="button" class="photo__like-btn"></button>
         </li>
         <li class="photo__card">
           <img src="./images/guardians.webp" alt="Идолы" class="photo__image">
           <h2 class="photo__name">Стражи леса</h2>
-          <div class="photo__like-btn"></div>
+          <button type="button" class="photo__like-btn"></button>
         </li>
         <li class="photo__card">
           <img src="./images/shady-pond.jpg" alt="Пруд" class="photo__image">
           <h2 class="photo__name">Тенистый пруд</h2>
-          <div class="photo__like-btn"></div>
+          <button type="button" class="photo__like-btn"></button>
         </li>
         <li class="photo__card">
           <img src="./images/silver-spring.jpg" alt="Родник" class="photo__image">
           <h2 class="photo__name">Серебрянный родник</h2>
-          <div class="photo__like-btn"></div>
+          <button type="button" class="photo__like-btn"></button>
         </li>
         <li class="photo__card">
           <img src="./images/squirrel.jpg" alt="Белка" class="photo__image">
           <h2 class="photo__name">Местные жители</h2>
-          <div class="photo__like-btn"></div>
+          <button type="button" class="photo__like-btn"></button>
         </li>
       </ul>
     </section>
@@ -64,16 +64,16 @@
   </footer>
   <section class="popup">
     <div class="popup__container">
-    <button class="popup__close"></button>
-    <h2 class="popup__title">Редактировать профиль</h2>
-    <form class="popup__form" name="popupForm">
-      <fieldset class="popup__input-field">
-        <input type="text" name = "userName" placeholder="Имя пользователя" class="popup__input popup__input_name">
-        <input type="text" name = "userActivity" placeholder="Виды деятельности" class="popup__input popup__input_activity">
-      </fieldset>
-      <button type="submit" value="save" class="popup__save">Сохранить</button>
-    </form>
-  </div>
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form" name="popupForm">
+        <fieldset class="popup__input-field">
+          <input type="text" name = "userName" placeholder="Имя пользователя" class="popup__input popup__input_name">
+          <input type="text" name = "userActivity" placeholder="Виды деятельности" class="popup__input popup__input_activity">
+        </fieldset>
+        <button name="saveBtn" class="popup__save">Сохранить</button>
+      </form>
+    </div>
   </section>
   <script src="./scripts/index.js"></script>
 </body>

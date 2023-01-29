@@ -6,6 +6,7 @@
   color: white;
   margin-top: 38px;
   padding: 13px 82px;
+  border: none;
   border-radius: 2px;
   transition: opacity .3s ease-in;
   cursor: pointer;
