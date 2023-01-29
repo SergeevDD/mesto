@@ -13,9 +13,8 @@
 
 @media screen and (min-width: 760px) {
   .profile__activity {
-    text-align: start;
-    margin-top: 9px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 0px;
     font-size: 18px;
     line-height: 22px;
   }

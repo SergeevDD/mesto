@@ -3,8 +3,9 @@
   font-family: 'Inter', 'Arial',  sans-serif;
   font-size: 14px;
   line-height: 17px;
+  min-height: 46px;
   color: white;
-  margin-top: 38px;
+  margin-top: 42px;
   padding: 13px 82px;
   border: none;
   border-radius: 2px;

@@ -21,6 +21,7 @@
   .profile__edit-btn {
     min-width: 24px;
     background-size: 10px, 10px;
-    margin-left: 18px;
+    margin-top: 5px;
+    margin-left: 19px;
   }
 }
