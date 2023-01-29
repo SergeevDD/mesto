@@ -1,38 +1,34 @@
-let userProfile = document.querySelector('.profile');
-let editMenu = document.querySelector('.edit-profile');
-let pName = userProfile.querySelector('.profile__name');
-let pJob = userProfile.querySelector('.profile__activity');
-let editBtn = userProfile.querySelector('.profile__edit-btn');
-let formSubmit = editMenu.querySelector('.edit-profile__container');
-let closeBtn = editMenu.querySelector('.edit-profile__close');
+let profile = document.querySelector('.profile');
+let profileName = profile.querySelector('.profile__name');
+let profileActivity = profile.querySelector('.profile__activity');
+let editBtn = profile.querySelector('.profile__edit-btn');
+let popup = document.querySelector('.popup');
+let popupForm = popup.querySelector('.popup__form');
+let popupCloseBtn = popup.querySelector('.popup__close');
+let inputName = popup.querySelector('.popup__input_name');
+let inputActivity = popup.querySelector('.popup__input_activity');
 
-function openEditProfile () {
-  editMenu.classList.add('edit-profile_opened');
-  let inputName = editMenu.querySelector('.edit-profile__input_name');
-  let inputJob = editMenu.querySelector('.edit-profile__input_activity');
-  inputName.value = pName.textContent;
-  inputJob.value = pJob.textContent;
+function showPopup () {
+  popup.classList.add('popup_opened');
+  inputName.value = profileName.textContent;
+  inputActivity.value = profileActivity.textContent;
 }
 
-function closeEditProfile () {
-  editMenu.classList.remove('edit-profile_opened');
+function hidePopup () {
+  popup.classList.remove('popup_opened');
 }
 
 function handleFormSubmit (evt) {
   evt.preventDefault();
-  let inputName = editMenu.querySelector('.edit-profile__input_name').value;
-  let inputJob = editMenu.querySelector('.edit-profile__input_activity').value;
-  console.log(inputName.length);
-  if(inputName.length > 1 && inputJob.length > 1) {
-  pName.textContent = inputName;
-  pJob.textContent = inputJob;
-  closeEditProfile ();
+  if(inputName.value.length > 1 && inputActivity.value.length > 1) {
+     profileName.textContent = inputName.value;
+     profileActivity.textContent = inputActivity.value;
+     closeEditProfile ();
   } else {
-    alert('Заполните все поля!');
+     alert('Заполните все поля!');
   }
-
 }
 
-editBtn.addEventListener('click', openEditProfile);
-closeBtn.addEventListener('click', closeEditProfile);
-formSubmit.addEventListener('submit', handleFormSubmit);
+editBtn.addEventListener('click', showPopup);
+popupCloseBtn.addEventListener('click', hidePopup);
+popupForm.addEventListener('submit', handleFormSubmit);

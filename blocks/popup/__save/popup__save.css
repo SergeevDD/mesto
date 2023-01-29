@@ -1,4 +1,4 @@
-.edit-profile__save {
+.popup__save {
   background-color: #000;
   font-family: 'Inter', 'Arial',  sans-serif;
   font-size: 14px;
@@ -11,12 +11,12 @@
   cursor: pointer;
 }
 
-.edit-profile__save:hover {
+.popup__save:hover {
   opacity: .8;
 }
 
 @media screen and (min-width: 800px) {
-  .edit-profile__save {
+  .popup__save {
     font-size: 18px;
     line-height: 22px;
     min-height: 50px;

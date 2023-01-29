@@ -1,4 +1,4 @@
-.edit-profile {
+.popup {
   box-sizing: border-box;
   position: fixed;
   top: 0;
@@ -13,7 +13,7 @@
 }
 
 @media screen and (min-width: 800px) {
-  .edit-profile{
+  .popup {
     font-size: 24px;
     line-height: 29px;
   }

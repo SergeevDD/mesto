@@ -1,4 +1,4 @@
-.edit-profile__close {
+.popup__close {
   width: 20px;
   height: 20px;
   position: absolute;
@@ -13,16 +13,12 @@
   cursor: pointer;
 }
 
-.edit-profile__close:hover {
+.popup__close:hover {
   opacity: .6;
 }
 
-.popup__close:hover {
- background-color: black;
-}
-
 @media screen and (min-width: 800px) {
-  .edit-profile__close{
+  .popup__close {
     width: 32px;
     height: 32px;
     top: -40px;
