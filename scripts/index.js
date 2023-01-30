@@ -5,8 +5,8 @@ let editBtn = profile.querySelector('.profile__edit-btn');
 let popup = document.querySelector('.popup');
 let popupForm = popup.querySelector('.popup__form');
 let popupCloseBtn = popup.querySelector('.popup__close');
-let inputName = popup.querySelector('.popup__input_name');
-let inputActivity = popup.querySelector('.popup__input_activity');
+let inputName = popup.querySelector('.popup__input_type_name');
+let inputActivity = popup.querySelector('.popup__input_type_activity');
 
 function showPopup () {
   popup.classList.add('popup_opened');
