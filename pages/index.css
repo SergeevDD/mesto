@@ -22,6 +22,7 @@
 @import url(../blocks/photo/__list/photo__list.css);
 @import url(../blocks/photo/__name/photo__name.css);
 @import url(../blocks/photo/__card/photo__card.css);
+@import url(../blocks/photo/__delete-btn/photo__delete-btn.css);
 
 /* footer */
 @import url(../blocks/footer/footer.css);

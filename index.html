@@ -26,7 +26,7 @@
     </section>
     <section class="photo">
       <ul class="photo__list">
-        <li class="photo__card">
+        <!-- <li class="photo__card">
           <img src="./images/birch.jpg" alt="Берёза" class="photo__image">
           <h2 class="photo__name">Берёзовая роща</h2>
           <button type="button" class="photo__like-btn"></button>
@@ -55,8 +55,16 @@
           <img src="./images/squirrel.jpg" alt="Белка" class="photo__image">
           <h2 class="photo__name">Местные жители</h2>
           <button type="button" class="photo__like-btn"></button>
-        </li>
+        </li> -->
       </ul>
+      <template id="cardTemplate">
+        <li class="photo__card">
+          <img src="" alt="" class="photo__image">
+          <h2 class="photo__name"></h2>
+          <button type="button" class="photo__like-btn"></button>
+          <button type="button" class="photo__delete-btn"></button>
+        </li>
+      </template>
     </section>
   </main>
   <footer class="footer">

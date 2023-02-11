@@ -1,4 +1,5 @@
 .photo__card {
+  position: relative;
   background-color: white;
   border-radius: 3%;
   display: grid;
