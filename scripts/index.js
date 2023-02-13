@@ -18,10 +18,7 @@ const popupPreviewCloseBtn = popupPreview.querySelector('.popup__close');
 const popupPreviewImage = popupPreview.querySelector('.popup__image');
 const popupPreviewSubtitle = popupPreview.querySelector('.popup__subtitle');
 const photoList = document.querySelector('.photo__list');
-const deleteBtn = photoList.querySelector('photo__delete-btn');
-const likeBtn = photoList.querySelector('photo__like-btn');
-const cardTemplate =  document.querySelector('#cardTemplate').content;
-
+const cardTemplate = document.querySelector('#cardTemplate').content;
 
 const initialCards = [
   {
@@ -50,69 +47,69 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach ((cardData) => {
-  const card = cardRendering(cardData.name,cardData.link);
-  photoList.append(card);
- });
-
-function showPopup (targetPopup,evt) {
+function showPopup(targetPopup, evt) {
   targetPopup.classList.add('popup_opened');
-  if(evt) {
-  popupPreviewImage.src = evt.target.src;
-  popupPreviewSubtitle.textContent = evt.target.alt;
+  if (evt) {
+    popupPreviewImage.src = evt.target.src;
+    popupPreviewSubtitle.textContent = evt.target.alt;
   }
   inputName.value = profileName.textContent;
   inputActivity.value = profileActivity.textContent;
 }
 
-function hidePopup (targetPopup) {
+function hidePopup(targetPopup) {
   targetPopup.classList.remove('popup_opened');
 }
 
-function editProfile (evt) {
+function editProfile(evt) {
   evt.preventDefault();
-  if(inputName.value.length > 1 && inputActivity.value.length > 1) {
-     profileName.textContent = inputName.value;
-     profileActivity.textContent = inputActivity.value;
-     hidePopup(popupEdit);
+  if (inputName.value.length > 1 && inputActivity.value.length > 1) {
+    profileName.textContent = inputName.value;
+    profileActivity.textContent = inputActivity.value;
+    hidePopup(popupEdit);
   } else {
-     alert('Заполните все поля!');
+    alert('Заполните все поля!');
   }
 }
 
-function addNewCard (evt) {
-  evt.preventDefault();
-  if(inputPlace.value.length > 1 && inputLink.value.length > 1) {
-  const cardName = inputPlace.value;
-  const cardLink = inputLink.value;
-  const newCard = cardRendering(cardName, cardLink);
-  photoList.prepend(newCard);
-  hidePopup(popupAdd);
-  } else {
-    alert('Заполните все поля!');
- }
-}
-
-function cardRendering (name,link) {
-  const card = cardTemplate.querySelector('.photo__card').cloneNode(true);
-  const image = card.querySelector('.photo__image');
-  card.querySelector('.photo__name').textContent = name;
-  image.alt = name;
-  image.src= link;
-  card.querySelector('.photo__delete-btn').addEventListener('click', (evt) => deleteCard(evt));
-  card.querySelector('.photo__like-btn').addEventListener('click', (evt) => likeCard(evt));
-  image.addEventListener('click' , (evt) => showPopup(popupPreview,evt));
-  return card;
-}
-
-function deleteCard (targetBtn) {
+function deleteCard(targetBtn) {
   const card = targetBtn.target.closest('.photo__card');
   card.remove();
 }
 
-function likeCard (targetBtn) {
+function likeCard(targetBtn) {
   targetBtn.target.classList.toggle('photo__like-btn_active');
 }
+
+function cardRendering(name, link) {
+  const card = cardTemplate.querySelector('.photo__card').cloneNode(true);
+  const image = card.querySelector('.photo__image');
+  card.querySelector('.photo__name').textContent = name;
+  image.alt = name;
+  image.src = link;
+  card.querySelector('.photo__delete-btn').addEventListener('click', (evt) => deleteCard(evt));
+  card.querySelector('.photo__like-btn').addEventListener('click', (evt) => likeCard(evt));
+  image.addEventListener('click', (evt) => showPopup(popupPreview, evt));
+  return card;
+}
+
+function addNewCard(evt) {
+  evt.preventDefault();
+  if (inputPlace.value.length > 1 && inputLink.value.length > 1) {
+    const cardName = inputPlace.value;
+    const cardLink = inputLink.value;
+    const newCard = cardRendering(cardName, cardLink);
+    photoList.prepend(newCard);
+    hidePopup(popupAdd);
+  } else {
+    alert('Заполните все поля!');
+  }
+}
+
+initialCards.forEach((cardData) => {
+  const card = cardRendering(cardData.name, cardData.link);
+  photoList.append(card);
+});
 
 addBtn.addEventListener('click', () => showPopup(popupAdd));
 editBtn.addEventListener('click', () => showPopup(popupEdit));
