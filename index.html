@@ -26,40 +26,10 @@
     </section>
     <section class="photo">
       <ul class="photo__list">
-        <!-- <li class="photo__card">
-          <img src="./images/birch.jpg" alt="Берёза" class="photo__image">
-          <h2 class="photo__name">Берёзовая роща</h2>
-          <button type="button" class="photo__like-btn"></button>
-        </li>
-        <li class="photo__card">
-          <img src="./images/giant-oak.jpg" alt="Дуб" class="photo__image">
-          <h2 class="photo__name">Дуб великан</h2>
-          <button type="button" class="photo__like-btn"></button>
-        </li>
-        <li class="photo__card">
-          <img src="./images/guardians.webp" alt="Идолы" class="photo__image">
-          <h2 class="photo__name">Стражи леса</h2>
-          <button type="button" class="photo__like-btn"></button>
-        </li>
-        <li class="photo__card">
-          <img src="./images/shady-pond.jpg" alt="Пруд" class="photo__image">
-          <h2 class="photo__name">Тенистый пруд</h2>
-          <button type="button" class="photo__like-btn"></button>
-        </li>
-        <li class="photo__card">
-          <img src="./images/silver-spring.jpg" alt="Родник" class="photo__image">
-          <h2 class="photo__name">Серебрянный родник</h2>
-          <button type="button" class="photo__like-btn"></button>
-        </li>
-        <li class="photo__card">
-          <img src="./images/squirrel.jpg" alt="Белка" class="photo__image">
-          <h2 class="photo__name">Местные жители</h2>
-          <button type="button" class="photo__like-btn"></button>
-        </li> -->
       </ul>
       <template id="cardTemplate">
         <li class="photo__card">
-          <img src="" alt="" class="photo__image">
+          <img class="photo__image">
           <h2 class="photo__name"></h2>
           <button type="button" class="photo__like-btn"></button>
           <button type="button" class="photo__delete-btn"></button>
@@ -70,7 +40,7 @@
   <footer class="footer">
     <p class="footer__copyright" lang="en">&copy; 2020 Mesto Russia</p>
   </footer>
-  <section class="popup">
+  <section class="popup popup_type_edit">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
@@ -81,6 +51,27 @@
         </fieldset>
         <button name="saveBtn" type="submit" class="popup__save">Сохранить</button>
       </form>
+    </div>
+  </section>
+  <section class="popup popup_type_add">
+    <div class="popup__container">
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form" name="popupForm">
+        <fieldset class="popup__input-field">
+          <input type="text" name = "placeName" placeholder="Название" class="popup__input popup__input_type_place">
+          <input type="text" name = "placeLink" placeholder="Ссылка на картинку" class="popup__input popup__input_type_link">
+        </fieldset>
+        <button name="saveBtn" type="submit" class="popup__save">Создать</button>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup_type_preview">
+
+      <figure class="popup__container popup__container_type_preview">
+        <button class="popup__close" type="button"></button>
+        <img class="popup__image">
+        <figcaption class="popup__subtitle">Че каво?</figcaption>
     </div>
   </section>
   <script src="./scripts/index.js"></script>
