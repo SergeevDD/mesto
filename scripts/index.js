@@ -119,7 +119,17 @@ popupCloseBtns.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => hidePopup(popup))
 })
+
 addBtn.addEventListener('click', () => showPopup(popupAdd));
 editBtn.addEventListener('click', () => {showPopup(popupEdit);setProfileData();});
 popupEditForm.addEventListener('submit', editProfile);
 popupAddForm.addEventListener('submit', addNewCard);
+
+enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+});

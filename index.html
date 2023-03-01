@@ -44,10 +44,12 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="popupForm">
+      <form class="popup__form" name="popupForm" novalidate>
         <fieldset class="popup__input-field">
-          <input type="text" name = "userName" placeholder="Имя пользователя" class="popup__input popup__input_type_name">
-          <input type="text" name = "userActivity" placeholder="Виды деятельности" class="popup__input popup__input_type_activity">
+          <input type="text" name = "userName" id="input-username" placeholder="Имя пользователя" class="popup__input popup__input_type_name" required minlength="2" maxlength="40">
+          <span class="popup__error" id="input-username-error">Ошибка</span>
+          <input type="text" name = "userActivity" id="input-useractivity" placeholder="Виды деятельности" class="popup__input popup__input_type_activity" required minlength="2" maxlength="200">
+          <span class="popup__error" id="input-useractivity-error"></span>
         </fieldset>
         <button name="saveBtn" type="submit" class="popup__save">Сохранить</button>
       </form>
@@ -57,10 +59,12 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form" name="popupForm">
+      <form class="popup__form" name="popupForm" novalidate>
         <fieldset class="popup__input-field">
-          <input type="text" name = "placeName" placeholder="Название" class="popup__input popup__input_type_place">
-          <input type="text" name = "placeLink" placeholder="Ссылка на картинку" class="popup__input popup__input_type_link">
+          <input type="text" name = "placeName" id="input-placename" placeholder="Название" class="popup__input popup__input_type_place" required minlength="2" maxlength="30">
+          <span class="popup__error" id="input-placename-error"></span>
+          <input type="url" name = "placeLink" id="input-placelink" placeholder="Ссылка на картинку" class="popup__input popup__input_type_link" required>
+          <span class="popup__error" id="input-placelink-error"></span>
         </fieldset>
         <button name="saveBtn" type="submit" class="popup__save">Создать</button>
       </form>
@@ -73,6 +77,7 @@
         <figcaption class="popup__subtitle">Описание</figcaption>
       </figure>
   </section>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
