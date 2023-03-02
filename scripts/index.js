@@ -14,7 +14,7 @@ const inputLink = popupAdd.querySelector('.popup__input_type_link');
 const popupPreview = document.querySelector('.popup_type_preview');
 const popupPreviewImage = popupPreview.querySelector('.popup__image');
 const popupPreviewSubtitle = popupPreview.querySelector('.popup__subtitle');
-const popupCloseBtns = document.querySelectorAll('.popup__close');
+const popupList = document.querySelectorAll('.popup');
 const photoList = document.querySelector('.photo__list');
 const cardTemplate = document.querySelector('#cardTemplate').content;
 
@@ -45,12 +45,35 @@ const initialCards = [
   }
 ];
 
+function findActivePopup(popupList) {
+  let list = Array.from(popupList);
+  return list.find((popup) => {
+    if(popup.classList.contains('popup_opened')) {
+      return popup;
+    }
+  });
+}
+
+function escapePressed(key) {
+  if(key === 'Escape') {
+    hidePopup(findActivePopup(popupList));
+  }
+}
+
+function popupOverlayClicked(evt) {
+  if(evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
+    hidePopup(findActivePopup(popupList));
+  }
+}
+
 function showPopup(targetPopup) {
   targetPopup.classList.add('popup_opened');
 }
 
 function hidePopup(targetPopup) {
+  if(targetPopup !== undefined) {
   targetPopup.classList.remove('popup_opened');
+  }
 }
 
 function setProfileData() {
@@ -109,21 +132,34 @@ function addNewCard(evt) {
     alert('Заполните все поля!');
   }
 }
+/* let popupClass = '.popup';
+ const popupCloser = (popupClass) => {
+    const popupList = Array.from(document.querySelectorAll(popupClass));
+    console.log(popupList);
+    popupList.forEach((popup) => {
+    popup.addEventListener('click',(evt) => console.log(popup, evt.target));
+  });
+}
+ff(); */
+popupList.forEach((popup) => {
+  popup.addEventListener('click',(evt) => popupOverlayClicked(evt));
+});
 
 initialCards.forEach((cardData) => {
   const card = cardRendering(cardData.name, cardData.link);
   photoList.append(card);
 });
 
-popupCloseBtns.forEach((button) => {
+/* popupCloseBtns.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => hidePopup(popup))
-})
+}) */
 
 addBtn.addEventListener('click', () => showPopup(popupAdd));
 editBtn.addEventListener('click', () => {showPopup(popupEdit);setProfileData();});
 popupEditForm.addEventListener('submit', editProfile);
 popupAddForm.addEventListener('submit', addNewCard);
+document.addEventListener('keydown',(evt) => escapePressed(evt.key));
 
 enableValidation({
   formSelector: '.popup__form',
