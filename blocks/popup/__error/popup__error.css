@@ -2,5 +2,8 @@
   color: #f00;
   font-size: 12px;
   line-height: 14.52px;
-  display: none;
+  visibility: hidden;
+  min-height: 30px;
+  max-width: 358px;
+  padding-top: 5px;
 }
