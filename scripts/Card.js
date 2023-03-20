@@ -25,5 +25,4 @@ export default class Card {
     image.addEventListener('click', () => this._previewPopup(this._name, this._link));
     return card;
   }
-
 }

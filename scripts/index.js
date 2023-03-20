@@ -71,9 +71,14 @@ function clearInputErrors(popup, inputClass, errorClass) {
     const errorElement = popup.querySelector(`#${input.id}-error`);
     input.classList.remove(errorClass);
     errorElement.textContent = '';
-  })
-};
+  });
+}
 
+function handleEscape(evt) {
+  if (evt.key === 'Escape') {
+    hidePopup(findActivePopup(popupList));
+  }
+}
 function showPopup(targetPopup) {
   targetPopup.classList.add('popup_opened');
   document.addEventListener('keydown', handleEscape);
@@ -83,12 +88,6 @@ function hidePopup(targetPopup) {
   if (targetPopup !== undefined) {
     targetPopup.classList.remove('popup_opened');
     document.removeEventListener('keydown', handleEscape);
-  }
-}
-
-function handleEscape(evt) {
-  if (evt.key === 'Escape') {
-    hidePopup(findActivePopup(popupList));
   }
 }
 
@@ -117,16 +116,16 @@ function editProfile(evt) {
   hidePopup(popupEdit);
 }
 
-function startValidation(forms, validateConfig) {
+function startValidation(forms, classConfiguration) {
   forms.forEach((form) => {
-    const validateForm = new Validate(validateConfig, form);
+    const validateForm = new Validate(classConfiguration, form);
     validateForm.enableValidation();
   });
 }
 
 function addNewCard(evt) {
   evt.preventDefault();
-  const card = new Card({name: inputPlace.value,link: inputLink.value}, '#cardTemplate', setPreviewData);
+  const card = new Card({ name: inputPlace.value, link: inputLink.value }, '#cardTemplate', setPreviewData);
   const newCard = card.createCard();
   photoList.prepend(newCard);
   evt.target.reset();
@@ -153,4 +152,5 @@ editBtn.addEventListener('click', () => {
 popupEditForm.addEventListener('submit', editProfile);
 popupAddForm.addEventListener('submit', addNewCard);
 
-startValidation([popupAddForm,popupEditForm], validateConfig);
+startValidation([popupAddForm, popupEditForm], validateConfig);
+
