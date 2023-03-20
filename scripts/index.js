@@ -28,6 +28,7 @@ const validateConfig = {
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible',
 };
+
 const initialCards = [
   {
     name: 'Берёзовая роща',
@@ -116,6 +117,13 @@ function editProfile(evt) {
   hidePopup(popupEdit);
 }
 
+function startValidation(forms, validateConfig) {
+  forms.forEach((form) => {
+    const validateForm = new Validate(validateConfig, form);
+    validateForm.enableValidation();
+  });
+}
+
 function addNewCard(evt) {
   evt.preventDefault();
   const card = new Card({name: inputPlace.value,link: inputLink.value}, '#cardTemplate', setPreviewData);
@@ -141,6 +149,8 @@ editBtn.addEventListener('click', () => {
   setProfileData();
   clearInputErrors(popupEdit, validateConfig.inputSelector, validateConfig.inputErrorClass);
 });
+
 popupEditForm.addEventListener('submit', editProfile);
 popupAddForm.addEventListener('submit', addNewCard);
 
+startValidation([popupAddForm,popupEditForm], validateConfig);
