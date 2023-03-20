@@ -1,3 +1,6 @@
+import Card from './Card.js';
+import Validate from './FormValidator.js';
+
 const profile = document.querySelector('.profile');
 const profileName = profile.querySelector('.profile__name');
 const profileActivity = profile.querySelector('.profile__activity');
@@ -16,7 +19,6 @@ const popupPreviewImage = popupPreview.querySelector('.popup__image');
 const popupPreviewSubtitle = popupPreview.querySelector('.popup__subtitle');
 const popupList = document.querySelectorAll('.popup');
 const photoList = document.querySelector('.photo__list');
-const cardTemplate = document.querySelector('#cardTemplate').content;
 
 const validateConfig = {
   formSelector: '.popup__form',
@@ -104,6 +106,7 @@ function setPreviewData(cardName, cardLink) {
   popupPreviewImage.src = cardLink;
   popupPreviewImage.alt = cardName;
   popupPreviewSubtitle.textContent = cardName;
+  showPopup(popupPreview);
 }
 
 function editProfile(evt) {
@@ -113,32 +116,10 @@ function editProfile(evt) {
   hidePopup(popupEdit);
 }
 
-function deleteCard(targetBtn) {
-  const card = targetBtn.target.closest('.photo__card');
-  card.remove();
-}
-
-function toggleLike(targetBtn) {
-  targetBtn.target.classList.toggle('photo__like-btn_active');
-}
-
-function createCard(name, link) {
-  const card = cardTemplate.querySelector('.photo__card').cloneNode(true);
-  const image = card.querySelector('.photo__image');
-  card.querySelector('.photo__name').textContent = name;
-  image.alt = name;
-  image.src = link;
-  card.querySelector('.photo__delete-btn').addEventListener('click', (evt) => deleteCard(evt));
-  card.querySelector('.photo__like-btn').addEventListener('click', (evt) => toggleLike(evt));
-  image.addEventListener('click', () => { showPopup(popupPreview); setPreviewData(name, link); });
-  return card;
-}
-
 function addNewCard(evt) {
   evt.preventDefault();
-  const cardName = inputPlace.value;
-  const cardLink = inputLink.value;
-  const newCard = createCard(cardName, cardLink);
+  const card = new Card({name: inputPlace.value,link: inputLink.value}, '#cardTemplate', setPreviewData);
+  const newCard = card.createCard();
   photoList.prepend(newCard);
   evt.target.reset();
   hidePopup(popupAdd);
@@ -149,8 +130,9 @@ popupList.forEach((popup) => {
 });
 
 initialCards.forEach((cardData) => {
-  const card = createCard(cardData.name, cardData.link);
-  photoList.append(card);
+  const card = new Card(cardData, '#cardTemplate', setPreviewData);
+  const cardElement = card.createCard();
+  photoList.append(cardElement);
 });
 
 addBtn.addEventListener('click', () => showPopup(popupAdd));
@@ -162,4 +144,3 @@ editBtn.addEventListener('click', () => {
 popupEditForm.addEventListener('submit', editProfile);
 popupAddForm.addEventListener('submit', addNewCard);
 
-enableValidation(validateConfig);
