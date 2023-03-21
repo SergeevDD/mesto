@@ -110,14 +110,14 @@ function editProfile(evt) {
 }
 
 function activateValidation(classConfiguration) {
- const formList = Array.from(document.querySelectorAll(classConfiguration.formSelector));
- formList.forEach((formElement) => {
-  const validator = new FormValidator(classConfiguration, formElement);
-  const formName = formElement.getAttribute('name');
-  formValidators[formName] = validator;
+  const formList = Array.from(document.querySelectorAll(classConfiguration.formSelector));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(classConfiguration, formElement);
+    const formName = formElement.getAttribute('name');
+    formValidators[formName] = validator;
 
-  validator.enableValidation();
- });
+    validator.enableValidation();
+  });
 }
 
 function createCard(cardData) {

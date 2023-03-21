@@ -16,7 +16,7 @@ export default class Card {
     card.remove();
   }
 
-  _setEventListeners(card,image) {
+  _setEventListeners(card, image) {
     card.querySelector('.photo__delete-btn').addEventListener('click', (evt) => this._deleteCard(evt));
     card.querySelector('.photo__like-btn').addEventListener('click', (evt) => this._toggleLike(evt));
     image.addEventListener('click', () => this._previewPopup(this._name, this._link));
@@ -29,7 +29,7 @@ export default class Card {
     image.src = this._link;
     image.alt = this._name;
     name.textContent = this._name;
-    this._setEventListeners(card,image);
+    this._setEventListeners(card, image);
     return card;
   }
 }
