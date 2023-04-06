@@ -1,6 +1,7 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
-import Validate from './FormValidator.js';
+import Section from './components/Section.js';
+import Popup from './components/Popup.js';
 
 const profile = document.querySelector('.profile');
 const profileName = profile.querySelector('.profile__name');
@@ -155,4 +156,8 @@ popupEditForm.addEventListener('submit', editProfile);
 popupAddForm.addEventListener('submit', addNewCard);
 
 activateValidation(validateConfig);
+
+const mySection = new Section({items: initialCards, renderer : (item) => {
+
+}}, );
 
