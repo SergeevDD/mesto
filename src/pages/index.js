@@ -1,10 +1,11 @@
-import { initialCards, addBtn, editBtn, validateConfig, profileActivity, profileName, formValidators } from "../scripts/constants.js";
-import Section from "../scripts/components/Section.js";
-import Card from "../scripts/components/Card.js";
-import PopupWithForm from "../scripts/components/PopupWithForm.js";
-import PopupWithImage from "../scripts/components/PopupWithImage.js";
-import UserInfo from "../scripts/components/UserInfo.js";
-import FormValidator from "../scripts/components/FormValidator.js";
+import './index.css'
+import { initialCards, addBtn, editBtn, validateConfig, profileActivity, profileName, formValidators } from "../components/constants.js";
+import Section from "../components/Section.js";
+import Card from "../components/Card.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
+import FormValidator from "../components/FormValidator.js";
 
 function activateValidation(classConfiguration) {
   const formList = Array.from(document.querySelectorAll(classConfiguration.formSelector));
