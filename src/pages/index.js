@@ -20,14 +20,15 @@ function activateValidation(classConfiguration) {
 function createCard(item) {
   const card = new Card({
     data: item, handleCardClick: (item) => {
-      const popupPreview = new PopupWithImage('.popup_type_preview', item)
-      popupPreview.generatePopup();
-      popupPreview.open();
+      popupPreview.open(item);
     }
   }, '#cardTemplate');
   const cardElement = card.createCard();
   return cardElement
 }
+
+const popupPreview = new PopupWithImage('.popup_type_preview');
+popupPreview.setEventListeners();
 
 const cardList = new Section({ items: initialCards, renderer: createCard }
   , '.photo__list');
@@ -48,8 +49,9 @@ const addPopup = new PopupWithForm({
   }
 });
 
-editPopup.generatePopup();
-addPopup.generatePopup();
+editPopup.setEventListeners();
+addPopup.setEventListeners();
+
 editBtn.addEventListener('click', () => {
   editPopup.open();
   editPopup.setUserData(userInfo.getUserInfo())
