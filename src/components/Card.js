@@ -1,13 +1,33 @@
 export default class Card {
-  constructor({ data, handleCardClick }, templateSelector) {
-    this._name = data.placeName;
-    this._link = data.placeLink;
-    this._handleCardClick = handleCardClick
+  constructor({ data, handleCardClick, handleLikeClick, handleDeleteIconClick }, templateSelector) {
+    this._name = data.name;
+    this._link = data.link;
+    this._cardId = data._id;
+    this._ownerId = data.owner._id;
+    this._likes = data.likes;
+    this._handleCardClick = handleCardClick;
+    this._handleLikeClick = handleLikeClick;
+    this._handleDeleteIconClick = handleDeleteIconClick;
     this._element = document.querySelector(templateSelector).content;
+    this._liked = false;
+    this._owned = false;
+
   }
 
-  _toggleLike(evt) {
-    evt.target.classList.toggle('photo__like-btn_active');
+  updateLikes(data, user) {
+    this._likes = data.likes;
+    this._hasUserLike(user)
+    this._likeCount.textContent = data.likes.length;
+  }
+
+  _addLike() {
+    this._likeBtn.classList.add('photo__like-btn_active');
+    this._liked = true;
+  }
+  _removeLike() {
+    this._likeBtn.classList.remove('photo__like-btn_active');
+    this._liked = false;
+
   }
 
   _deleteCard(evt) {
@@ -15,19 +35,46 @@ export default class Card {
     card.remove();
   }
 
+  _hasUserLike(userId) {
+    if (this._likes.some((owner) => {
+       return owner._id === userId
+    })) {
+    this._addLike();
+    return
+    }
+    this._removeLike();
+  }
+
+  _isOwner(userId) {
+    if(userId === this._ownerId) {
+      this._owned = true;
+      return true;
+    }
+    return false
+  }
+
   _setEventListeners() {
-    this._card.querySelector('.photo__delete-btn').addEventListener('click', this._deleteCard);
-    this._card.querySelector('.photo__like-btn').addEventListener('click', this._toggleLike);
+    if (this._owned) {
+      this._card.querySelector('.photo__delete-btn').addEventListener('click', () => this._handleDeleteIconClick(this._cardId));
+    }
+    this._likeBtn.addEventListener('click', () => {this._handleLikeClick(this._liked, this._cardId)});
     this._image.addEventListener('click', () => this._handleCardClick({ image: this._link, description: this._name }));
   }
 
-  createCard() {
+  createCard(userId) {
     this._card = this._element.querySelector('.photo__card').cloneNode(true);
+    if (!this._isOwner(userId)) {
+      this._card.querySelector('.photo__delete-btn').remove();
+    }
     this._image = this._card.querySelector('.photo__image');
+    this._likeBtn = this._card.querySelector('.photo__like-btn');
     const name = this._card.querySelector('.photo__name');
+    this._likeCount = this._card.querySelector('.photo__like-value');
     this._image.src = this._link;
     this._image.alt = this._name;
     name.textContent = this._name;
+    this._likeCount.textContent = this._likes.length;
+    this._hasUserLike(userId);
     this._setEventListeners();
     return this._card;
   }

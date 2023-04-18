@@ -17,7 +17,10 @@
   </header>
   <main>
     <section class="profile">
-      <div class="profile__photo"></div>
+      <div class="avatar">
+        <img src="<%=require('./images/photo/default_ava.png')%>" alt="аватар" class="avatar__image">
+        <img src="<%=require('./images/logo/edit_btn.svg')%>" alt="изменить фото" class="avatar__edit">
+      </div>
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="profile__edit-btn" type="button"></button>
@@ -32,7 +35,10 @@
         <li class="photo__card">
           <img class="photo__image">
           <h2 class="photo__name"></h2>
-          <button type="button" class="photo__like-btn"></button>
+          <label class="photo__likes">
+            <button type="button" class="photo__like-btn"></button>
+            <span class="photo__like-value">?</span>
+          </label>
           <button type="button" class="photo__delete-btn"></button>
         </li>
       </template>
@@ -47,10 +53,10 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" name="popupFormEdit" novalidate>
         <fieldset class="popup__input-field">
-          <input type="text" name="userName" id="input-username" placeholder="Имя пользователя" value="name"
+          <input type="text" name="name" id="input-username" placeholder="Имя пользователя" value="name"
             class="popup__input popup__input_type_name" required minlength="2" maxlength="40">
           <span class="popup__error" id="input-username-error"></span>
-          <input type="text" name="userActivity" id="input-useractivity" placeholder="Виды деятельности" value="activ"
+          <input type="text" name="about" id="input-useractivity" placeholder="Виды деятельности" value="activ"
             class="popup__input popup__input_type_activity" required minlength="2" maxlength="200">
           <span class="popup__error" id="input-useractivity-error"></span>
         </fieldset>
@@ -64,10 +70,10 @@
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form" name="popupFormAdd" novalidate>
         <fieldset class="popup__input-field">
-          <input type="text" name="placeName" id="input-placename" placeholder="Название"
+          <input type="text" name="name" id="input-placename" placeholder="Название"
             class="popup__input popup__input_type_place" required minlength="2" maxlength="30">
           <span class="popup__error" id="input-placename-error"></span>
-          <input type="url" name="placeLink" id="input-placelink" placeholder="Ссылка на картинку"
+          <input type="url" name="link" id="input-placelink" placeholder="Ссылка"
             class="popup__input popup__input_type_link" required>
           <span class="popup__error" id="input-placelink-error"></span>
         </fieldset>
@@ -81,6 +87,27 @@
       <img alt="" src="#" class="popup__image">
       <figcaption class="popup__subtitle">Описание</figcaption>
     </figure>
+  </section>
+  <section class="popup popup_type_delete" aria-label="typeDelete">
+    <div class="popup__container">
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form class="popup__form" name="popupFormDelete" novalidate>
+        <button name="saveBtn" type="submit" class="popup__save">Да</button>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup_type_avatar" aria-label="typeAvatar">
+    <div class="popup__container">
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form class="popup__form" name="popupFormAvatar" novalidate>
+        <input type="url" name="link" id="input-avatarlink" placeholder="Ссылка"
+          class="popup__input popup__input_type_link" required>
+        <span class="popup__error" id="input-avatarlink-error"></span>
+        <button name="saveBtn" type="submit" class="popup__save">Сохранить</button>
+      </form>
+    </div>
   </section>
 </body>
 
