@@ -30,23 +30,18 @@ export default class Card {
 
   }
 
-  _deleteCard(evt) {
-    const card = evt.target.closest('.photo__card');
-    card.remove();
-  }
-
   _hasUserLike(userId) {
     if (this._likes.some((owner) => {
-       return owner._id === userId
+      return owner._id === userId
     })) {
-    this._addLike();
-    return
+      this._addLike();
+      return
     }
     this._removeLike();
   }
 
   _isOwner(userId) {
-    if(userId === this._ownerId) {
+    if (userId === this._ownerId) {
       this._owned = true;
       return true;
     }
@@ -55,9 +50,9 @@ export default class Card {
 
   _setEventListeners() {
     if (this._owned) {
-      this._card.querySelector('.photo__delete-btn').addEventListener('click', () => this._handleDeleteIconClick(this._cardId));
+      this._card.querySelector('.photo__delete-btn').addEventListener('click', () => { this._handleDeleteIconClick(this._card, this._cardId) })
     }
-    this._likeBtn.addEventListener('click', () => {this._handleLikeClick(this._liked, this._cardId)});
+    this._likeBtn.addEventListener('click', () => { this._handleLikeClick(this._liked, this._cardId) });
     this._image.addEventListener('click', () => this._handleCardClick({ image: this._link, description: this._name }));
   }
 

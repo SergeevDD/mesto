@@ -1,6 +1,0 @@
-.popup__save_loading {}
-
-.popup__save_loading:after {
-  animation: load steps(1, end) 1s infinite;
-  content: ' ...';
-}

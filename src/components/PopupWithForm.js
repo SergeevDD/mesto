@@ -6,15 +6,17 @@ export default class PopupWithForm extends Popup {
     this._handleformSubmit = handleformSubmit;
     this._inputList = this._element.querySelectorAll('.popup__input');
     this._formElement = this._element.querySelector('.popup__form');
-    this._button = this._element.querySelector('.popup__save')
+    this._submitBtn = this._element.querySelector('.popup__save')
+    this._submitBtnText = this._submitBtn.textContent
   }
 
-  resetLoadingStyle() {
-    this._button.classList.remove('popup__save_loading');
-  }
 
-  _setLoadingStyle() {
-    this._button.classList.add('popup__save_loading');
+  renderLoading(isLoading, loadingText = 'Сохранение...') {
+    if (isLoading) {
+      this._submitBtn.textContent = loadingText;
+    } else {
+      this._submitBtn.textContent = this._submitBtnText;
+    }
   }
 
   setUserData(data) {
@@ -39,11 +41,10 @@ export default class PopupWithForm extends Popup {
   setEventListeners() {
     this._element.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this._setLoadingStyle()
+      this.renderLoading(true)
       this._handleformSubmit(this._getInputValues());
     });
     super.setEventListeners();
   }
-
 
 }

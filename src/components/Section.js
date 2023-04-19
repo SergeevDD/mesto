@@ -9,14 +9,10 @@ export default class Section {
   }
 
   rendererItems(items) {
-    items.forEach(item => {
+    this._items = items;
+    this._items.forEach(item => {
       this._container.append(this._renderer(item));
     });
   }
 
-  clearField() {
-    while(this._container.firstChild) {
-      this._container.firstChild.remove();
-    }
-  }
 }
