@@ -9,8 +9,8 @@
 .profile__activity{font-size:14px;font-weight:400;grid-column:1/3;line-height:17px;margin:6px 0 33px;max-width:300px;overflow:hidden;text-align:center;text-overflow:ellipsis;white-space:nowrap}@media screen and (min-width:760px){.profile__activity{font-size:18px;line-height:22px;margin-bottom:0;margin-top:8px}}
 .profile__add-btn{background-color:#000;background-image:url(bed8c136e13907f5eefb.svg);background-position:50%;background-repeat:no-repeat;background-size:16px 16px;border:2px solid #fff;border-radius:2px;cursor:pointer;max-width:282px;min-height:50px;transition:opacity .3s ease-in;width:100%}.profile__add-btn:hover{opacity:.6}@media screen and (min-width:760px){.profile__add-btn{background-size:22px 22px;grid-column:4/5;margin-bottom:3px}}
 .profile__edit-btn{aspect-ratio:1/1;background-color:#000;background-image:url(6c7bf05444b9793fdf6e.svg);background-position:50%;background-repeat:no-repeat;background-size:7.5px,7.5px;border:1px solid #fff;cursor:pointer;margin-left:10px;min-width:18px;padding:0;transition:opacity .3s ease-in}.profile__edit-btn:hover{opacity:.6}@media screen and (min-width:800px){.profile__edit-btn{background-size:10px,10px;margin-left:19px;margin-top:5px;min-width:24px}}
-.avatar{border-radius:50%;margin-bottom:26px;max-width:120px;position:relative}.avatar:hover .avatar__image{opacity:.8}.avatar:hover .avatar__edit{opacity:1}@media screen and (min-width:760px){.profile__photo{margin:0}}
-.avatar__image{aspect-ratio:1/1;border-radius:50%;-o-object-fit:cover;object-fit:cover;width:100%}
+.avatar{border-radius:50%;margin-bottom:26px;min-height:120px;min-width:120px;position:relative}.avatar:hover .avatar__image{opacity:.8}.avatar:hover .avatar__edit{opacity:1}@media screen and (min-width:760px){.profile__photo{margin:0}}
+.avatar__image{aspect-ratio:1/1;border-radius:50%;max-width:120px;-o-object-fit:cover;object-fit:cover;width:100%}
 .avatar__edit{aspect-ratio:1/1;left:50%;opacity:0;position:absolute;top:50%;transform:translate(-50%,-50%);width:26px}
 .photo{padding-top:36px}@media screen and (min-width:800px){.photo{padding-top:50px}}
 .photo__image{aspect-ratio:1/1;border-radius:3% 3% 0 0;grid-column:1/3;max-width:100%;min-height:282px;min-width:282px;-o-object-fit:cover;object-fit:cover}
@@ -40,5 +40,4 @@
 .popup__error{color:red;font-size:12px;line-height:14.52px;max-width:358px;min-height:30px;padding-top:5px;visibility:hidden}
 .popup__error_visible{visibility:visible}
 .popup__input_type_error{border-bottom:1px solid red}
-.popup__save_loading:after{animation:load 1s step-end infinite;content:" ..."}
 
