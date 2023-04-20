@@ -78,7 +78,7 @@ Promise.all([apiRequest.getUserData(), apiRequest.getInitialCards()])
             editPopup.close()
           })
           .catch((err) => console.log('Ошибка:', err))
-          .finally(() => { editPopup.renderLoading(false) })
+          .finally(() => editPopup.renderLoading(false))
       }
     });
 
@@ -90,7 +90,7 @@ Promise.all([apiRequest.getUserData(), apiRequest.getInitialCards()])
             addPopup.close();
           })
           .catch((err) => console.log('Ошибка:', err))
-          .finally(addPopup.renderLoading(false))
+          .finally(() => addPopup.renderLoading(false))
       }
     });
 
@@ -102,7 +102,7 @@ Promise.all([apiRequest.getUserData(), apiRequest.getInitialCards()])
             editAvatarPopup.close();
           })
           .catch((err) => console.log('Ошибка:', err))
-          .finally(editAvatarPopup.renderLoading(false))
+          .finally(() => editAvatarPopup.renderLoading(false))
       }
     })
 
@@ -115,8 +115,14 @@ Promise.all([apiRequest.getUserData(), apiRequest.getInitialCards()])
       editPopup.setUserData(userInfo.getUserInfo())
       formValidators['popupFormEdit'].clearInputErrors();
     });
-    addBtn.addEventListener('click', () => { addPopup.open(); formValidators['popupFormAdd'].clearInputErrors(); });
-    editAvatar.addEventListener('click', () => { editAvatarPopup.open(); formValidators['popupFormAvatar'].clearInputErrors(); })
+    addBtn.addEventListener('click', () => {
+      addPopup.open();
+      formValidators['popupFormAdd'].clearInputErrors();
+    });
+    editAvatar.addEventListener('click', () => {
+      editAvatarPopup.open();
+      formValidators['popupFormAvatar'].clearInputErrors();
+    })
 
     activateValidation(validateConfig);
 
